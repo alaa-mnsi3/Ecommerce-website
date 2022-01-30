@@ -1,0 +1,80 @@
+.Card
+{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:180px;
+    margin:2rem auto;
+    width:50%;
+    padding:1rem;
+    border: 1px solid rgb(211, 187, 233);
+    border-radius:10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
+}
+
+.cardImage
+{
+    width:150px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.cardHeader,.cardQuantity , .totalPrice
+{
+    font:700 1.2rem/2rem 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(119, 36, 196);
+}
+.cardHeaderBottom,.cardQuantityWrapper ,.totalPriceWrapper
+{
+    font:500 .8rem/2rem 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(164, 108, 216);
+}
+button 
+{
+    cursor: pointer;
+}
+.RemoveIcon
+{
+    color:rgb(119, 36, 196);
+    font-size: 1.5rem;
+}
+.totalPriceWrapper
+{
+    width: 50%;
+    margin:2rem auto;
+}
+@media only screen and (max-width:990px) {
+    .Card ,.totalPriceWrapper
+    {
+        width:65%;
+    }
+}
+@media only screen and (max-width:768px) {
+    .Card ,.totalPriceWrapper
+    {
+        width:85%;
+    }
+}
+@media only screen and (max-width:555px) {
+    .Card ,.totalPriceWrapper
+    {
+        width:95%;
+    }
+    .Card
+    {
+        height:100px;
+    }
+    .cardImage
+    {
+        width:80px;
+        height: 80px;
+    }
+    .cardHeader,.cardQuantity , .totalPrice
+    {
+        font:700 .9rem/1rem 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .cardHeaderBottom,.cardQuantityWrapper ,.totalPriceWrapper
+    {
+        line-height: 1rem;
+    }
+}
