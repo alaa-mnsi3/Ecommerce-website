@@ -1,27 +1,33 @@
-import Nav from "./components/Nav/Nav";
+import NavView from "./components/Nav/NavView";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import Home from "./pages/Home/Home";
-import ProductDisc from "./pages/productDiscription/ProductDisc";
-import Cart from "./pages/Cart/cart";
-import Filter from "./pages/Filters/Filters";
-import WatchList from "./pages/WatchList/WatchList";
+
+import LoginView from "./pages/Login/LoginView";
+import HomeView from "./pages/Home/HomeView";
+import CatagoriesView from "./pages/Catagories/CatagoriesView";
+import CartView from "./pages/Cart/CartView";
+import FiltersView from "./pages/Filters/FiltersView";
+import ProductDiscriptionView from "./pages/productDiscription/ProductDiscriptionView";
+import WatchListView from "./pages/WatchList/WatchListView";
+
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Nav/>
+        <NavView/>
         <Routes>
-          <Route exact path="/" element={<Home/>}>
-          </Route>
-          <Route path="/cart" element={<Cart/>}/>
-          <Route exact path="/filters" element={<Filter/>}/>
-          <Route exact path="/watchlist" element={<WatchList/>}/>
-          <Route path="/products/:id" element={<ProductDisc/>}/>
+          <Route path="/" element={<HomeView/>}/>
+          <Route path="/cart" element={<CartView/>}/>
+          <Route path="/filters" element={<FiltersView/>}/>
+          <Route path="/watchlist" element={<WatchListView/>}/>
+          <Route path="/products/:id" element={<ProductDiscriptionView/>}/>
+          <Route path="/login" element={<LoginView/>}/>
+          <Route path="/Catagories" element={<CatagoriesView/>}/>
         </Routes>
       </div>
     </Router>
   );
 }
+
 
 export default App;

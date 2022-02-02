@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Navbar = styled.section`
+export const Navbar = styled.section`
 height:90px;
 position:sticky;
 background-color:#fff;
@@ -10,6 +10,22 @@ top:0px;
 z-index:1000;
 display:flex;
 align-items: center;
+.LogOut
+{
+    background-color: rgb(85 26 139);
+    color: #fff;
+    font:500 .9rem 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius:5px;
+    text-transform:capitalize;
+    padding:.5rem 1rem;
+    margin-left:.5rem;
+}
+.user
+{
+    color:rgb(85 26 139);
+    font:700 .9rem 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform:capitalize;
+}
 a
 {
     text-decoration:none;
@@ -167,4 +183,3 @@ span
     display:none;
 }
 `
-export default Navbar

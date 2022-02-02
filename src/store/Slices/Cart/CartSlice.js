@@ -7,6 +7,7 @@ const cartSlice = createSlice({
     name:'AddToCart',
     initialState,
     reducers:{
+        // add to cart
         AddCart:(state,action)=>
         {
             const existingProduct = state.products.find(item => {return item.id===action.payload.product.id});
@@ -30,6 +31,8 @@ const cartSlice = createSlice({
             state.QCart=TotalQuantity;
             state.TotalPrice=price;
         },
+
+        // remove item from cart
         RemoveForomCart:(state,action) =>
         {
             let products = state.products;

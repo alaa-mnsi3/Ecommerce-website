@@ -1,58 +1,64 @@
-import useFetch from '../../custom Hook/useFetch';
-import {useState ,useEffect} from 'react';
+import useFetch from '../../Custom Hook/useFetch';
+import {useState ,useEffect,useLayoutEffect} from 'react';
 
-function ProController() {
-    const dataList =useFetch('http://localhost:4005/products')
+import {useDispatch,useSelector} from 'react-redux';
+import {getCatagoriesApi} from '../../store/Slices/Catagory/CatagoryThunkAPI/getCatagoryApi';
+
+function FiltersContainer() {
+    const Items = useSelector(state => state.CatagSlice.catagories)
+    const dataList =useFetch('https://fake-products.herokuapp.com/products')
     const [products,setProducts]=useState(dataList)
-    const [categories,setCategories]=useState([
-      {id:1,checked:false,label:'man'},
-      {id:2,checked:false,label:'Woman'},
-      {id:3,checked:false,label:'Kids'},
-    ])
+    const [categories,setCategories]=useState(null)
     const [company,setCompany] =useState('All')
     const [sorting,setSorting] =useState(null)
     const [filterSearch,setFilterSearch]=useState('')
-    const [filterRatingPrice,setFilterRatingPrice]=useState(['40','600'])
+    const [filterRatingPrice,setFilterRatingPrice]=useState(['20','700'])
     const [LoadingData,setLoadingData] = useState(false);
+    const dispatch =useDispatch()
+
   
-  
+    // for CheckBox
     const handleChecked = (id) =>
     { 
       const checkedCatagory= categories;
       const updatedCheckedList = checkedCatagory.map(catagory => catagory.id === id ? {...catagory , checked:!catagory.checked} : catagory)
       setCategories(updatedCheckedList)
     }
-  
-    const handleFilterCompany =(e,value) =>
+    
+    // for Select Company
+    const handleFilterCompany =(value) =>
     {
       return !value? null : setCompany(value)
     }
-  
-    const handleSortFilter =(e,value) =>
+    
+    // for Sorting the Products
+    const handleSortFilter =(value) =>
     {
       return !value? null : setSorting(value)
     }
-  
+    
+    // for Search 
     const handleSearchFilter =(e) =>
     {
       const value = e.target.value
       setFilterSearch(value)
     }
     
+    // For Range Price
     const handlePriceFilter =(e)=>
     {
       const value= e.target.value;
       setFilterRatingPrice(['40',value.toString()])
     }
-  
+    
+    // Filters depend on all pervious
     const handlefilters = () =>
     {
       let WrappedDataList = dataList;
-      console.log(dataList)
   
       //checkbox
-      const CheckedData = categories.filter(item => item.checked == true).map(item => item.label)
-      if(CheckedData.length)
+      const CheckedData = categories?.filter(item => item.checked == true).map(item => item.label)
+      if(CheckedData?.length)
       {
         WrappedDataList=WrappedDataList.filter(product => CheckedData.includes(product.categoryName))
       }
@@ -63,7 +69,7 @@ function ProController() {
         switch(company)
         {
           case 'All':
-            if(CheckedData.length)
+            if(CheckedData?.length)
             {
               WrappedDataList=WrappedDataList.filter(product => CheckedData.includes(product.categoryName))
             }
@@ -115,14 +121,25 @@ function ProController() {
       if(!WrappedDataList.length) {setLoadingData(false)} else {setLoadingData(true)}
     }
 
+    // for Filters
     useEffect(()=>
     {
       handlefilters();
     },[categories,company,sorting,filterSearch,filterRatingPrice,dataList])
 
-  
+    // for CheckBox
+    useLayoutEffect(()=>{
+      dispatch(getCatagoriesApi())
+      let catagory=[];
+      Items.map((Item,index) =>{
+        return (
+        catagory=[...catagory,{id:(index+1),checked:false,label:Item.categoryName}]
+      )})
+      setCategories(catagory)
+    },[])
+    
   return {handleFilterCompany,handleChecked,categories,products,filterSearch,filterRatingPrice,
     LoadingData,handleSearchFilter,handlePriceFilter,handleSortFilter};
 }
 
-export default ProController;
+export default FiltersContainer;

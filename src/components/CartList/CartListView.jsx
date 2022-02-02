@@ -1,14 +1,18 @@
 import React from 'react';
+//Fontaswome
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import styles from '../CartItems.module.css';
-import useCart from '../CartContainer';
+//Styles and Functions to this Components
+import styles from './CartListStyles.module.css';
+import CartListContainer from './CartListContainer';
 
-function ListCart({data,Cart}) 
+function CartListView({data,Cart}) 
 {
-    const {handleDelete} = useCart(Cart)
+    const {handleDelete} = CartListContainer(Cart)
+
   return (
       <>
+        {/* data is data from cart or watchList */}
         {data?.map(Item => 
         (
             <div key={Item.id} className={styles.Card}>
@@ -38,4 +42,4 @@ function ListCart({data,Cart})
   );
 }
 
-export default ListCart;
+export default CartListView;

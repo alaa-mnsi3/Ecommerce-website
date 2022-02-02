@@ -1,3 +1,4 @@
+// for select company in filter page 
 export const selectCompany = 
 [
   {id:1,value:'All'},
@@ -8,6 +9,7 @@ export const selectCompany =
   {id:6,value:'Xomi'},
 ]
 
+// for select Order in filter page 
 export const selectOrder = 
 [
   {id:1,value:'Desc Order'},

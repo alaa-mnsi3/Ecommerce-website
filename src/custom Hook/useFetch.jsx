@@ -1,8 +1,9 @@
 import React, { useEffect,useState } from 'react';
 
+// fetching for any url in website
 function useFetch(url) 
 {
-    const [products,setProducts]=useState([{}]);
+    let [products,setProducts]=useState([{}]);
     useEffect(()=>
     {
         fetch(url)

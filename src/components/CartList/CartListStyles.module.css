@@ -19,12 +19,12 @@
     border-radius: 10px;
     overflow: hidden;
 }
-.cardHeader,.cardQuantity , .totalPrice
+.cardHeader,.cardQuantity 
 {
     font:700 1.2rem/2rem 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color:rgb(119, 36, 196);
 }
-.cardHeaderBottom,.cardQuantityWrapper ,.totalPriceWrapper
+.cardHeaderBottom,.cardQuantityWrapper
 {
     font:500 .8rem/2rem 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color:rgb(164, 108, 216);
@@ -38,25 +38,20 @@ button
     color:rgb(119, 36, 196);
     font-size: 1.5rem;
 }
-.totalPriceWrapper
-{
-    width: 50%;
-    margin:2rem auto;
-}
 @media only screen and (max-width:990px) {
-    .Card ,.totalPriceWrapper
+    .Card 
     {
         width:65%;
     }
 }
 @media only screen and (max-width:768px) {
-    .Card ,.totalPriceWrapper
+    .Card 
     {
         width:85%;
     }
 }
 @media only screen and (max-width:555px) {
-    .Card ,.totalPriceWrapper
+    .Card 
     {
         width:95%;
     }
@@ -69,11 +64,11 @@ button
         width:80px;
         height: 80px;
     }
-    .cardHeader,.cardQuantity , .totalPrice
+    .cardHeader,.cardQuantity 
     {
         font:700 .9rem/1rem 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    .cardHeaderBottom,.cardQuantityWrapper ,.totalPriceWrapper
+    .cardHeaderBottom,.cardQuantityWrapper
     {
         line-height: 1rem;
     }

@@ -1,13 +1,15 @@
 import React from 'react';
-import ProductDiscController from './DiscContainer';
+import ProductDiscriptionContainer from './ProductDiscriptionContainer';
 import styles from './ProductDisc.module.css';
 
 
-function ProductDisc() 
+function ProductDiscription() 
 {
-  const {product,Quantity,handleAddTocart,handlePlusQuantity,handleMinusQuantity} = ProductDiscController()
+  const {product,Quantity,handleAddTocart,handlePlusQuantity,handleMinusQuantity} = ProductDiscriptionContainer()
+
   return (
       <section className={styles.DiscParent}>
+
         <div className={styles.DiscImage}>
             <img  src={product.imageSrc} alt='product-image'/>
         </div>
@@ -30,8 +32,9 @@ function ProductDisc()
                 <button className={!(Quantity <= 0)? styles.AddToCart : styles.disabled} disabled={Quantity <= 0? true : false} onClick={handleAddTocart}>Add to cart</button>
             </div>
         </div>
+
       </section>
     )
 }
 
-export default ProductDisc;
+export default ProductDiscription;

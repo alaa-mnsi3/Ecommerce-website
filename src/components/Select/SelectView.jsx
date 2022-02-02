@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components'
 
 
-function Select({data , handleChange}) {
+function SelectView({data , handleChange}) {
   return (
-    <SelectBox onChange={(e) => handleChange(e,e.target.value)}>
+    <SelectBox onChange={(e) => handleChange(e.target.value)}>
         {data.map(item => 
         <option value={item.value} key={item.id} >{item.value}</option>
         )}
@@ -29,4 +29,4 @@ option
   padding:1rem;
 }
 `
-export default Select;
+export default SelectView;
