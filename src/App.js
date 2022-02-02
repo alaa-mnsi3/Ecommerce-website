@@ -17,6 +17,7 @@ function App() {
         <NavView/>
         <Routes>
           <Route path="/" element={<HomeView/>}/>
+          <Route path="/Ecommerce-website" element={<HomeView/>}/>
           <Route path="/cart" element={<CartView/>}/>
           <Route path="/filters" element={<FiltersView/>}/>
           <Route path="/watchlist" element={<WatchListView/>}/>

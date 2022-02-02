@@ -6,8 +6,7 @@ import styled from 'styled-components';
 function CartView() 
 {
   // products that stored in redux that added to the cart
-  const {products,TotalPrice} = useSelector(state=>state.cart)
-
+  const {products,TotalPrice} = useSelector(state => state.cart)
   return( 
     <section>
       {

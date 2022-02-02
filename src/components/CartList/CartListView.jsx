@@ -9,7 +9,7 @@ import CartListContainer from './CartListContainer';
 function CartListView({data,Cart}) 
 {
     const {handleDelete} = CartListContainer(Cart)
-
+    
   return (
       <>
         {/* data is data from cart or watchList */}

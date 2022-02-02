@@ -17,8 +17,9 @@ function ProductDiscriptionContainer()
     // Add product to Cart
     const handleAddTocart = () => 
     {
+        console.log(product, Quantity)
         dispatch(AddCart({product , Quantity}))
-        Navigate('/cart')
+        // Navigate('/cart')
     }
 
     // add Quantity
@@ -26,7 +27,6 @@ function ProductDiscriptionContainer()
     {
         setQuantity(prev => prev+1)
     }
-
     // Minus Quantity
     const handleMinusQuantity =() =>
     {
